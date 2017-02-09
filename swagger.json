@@ -1,0 +1,39 @@
+{
+  "swagger": "2.0",
+  "paths": {},
+  "definitions": {
+    "Foo": {
+      "type": "object",
+      "x-go-package": "github.com/flimzy/swagger-test"
+    },
+    "Ticket": {
+      "type": "object",
+      "properties": {
+        "assignedTo": {
+          "description": "The assignee",
+          "x-go-name": "AssignedTo",
+          "$ref": "#/definitions/Foo"
+        }
+      },
+      "x-go-package": "github.com/flimzy/swagger-test"
+    },
+    "Tickets": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/Ticket"
+      },
+      "x-go-package": "github.com/flimzy/swagger-test"
+    }
+  },
+  "responses": {
+    "FooResponse": {
+      "description": "Response is a response for foo",
+      "schema": {
+        "$ref": "#/definitions/Tickets"
+      },
+      "headers": {
+        "tickets": {}
+      }
+    }
+  }
+}
